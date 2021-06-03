@@ -12,7 +12,9 @@ class IndexController extends BaseController
 {
     public function index()
     {
-        $orders = b2bOrder::where('id','<',10)->get();
-        dd($orders);
+       //$ret = app('es')->info();
+       //dd($ret);
+	    $ret = app('es')->get(['index'=>"people","type"=>"_doc","id"=>1]);
+	    dd($ret);
     }
 }
